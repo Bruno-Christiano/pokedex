@@ -1,0 +1,41 @@
+.cardMain {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+
+  flex-wrap: wrap;
+  max-height: 77%;
+  max-width: 1024px;
+  width: 100%;
+  overflow: auto;
+  border-radius: 0;
+
+  .content {
+    background-color: var(--color-gray);
+    margin: 15px auto;
+    min-height: 200px;
+    max-width: 270px;
+  }
+}
+
+.content--img__img {
+  border-radius: 8px;
+}
+
+.cardType {
+  display: flex;
+  margin: 0 auto;
+  width: 80%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  &__type {
+    display: flex;
+    background-color: aqua;
+    width: 100px;
+    border-radius: 8px;
+    justify-content: center;
+    font-weight: 600;
+  }
+}
