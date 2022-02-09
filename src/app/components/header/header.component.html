@@ -1,0 +1,21 @@
+<mat-card class="cardMain">
+  <mat-card-content class="cardMainContent">
+    <div class="content--img">
+      <img
+        class="cardIm__img"
+        src="../../../assets/img/pokeapi_header.png"
+      />
+    </div>
+
+    <div class="content--btn">
+      <a
+        class="content--btn__btn"
+        mat-button
+        *ngFor="let actionConfig of actionsConfigs"
+      >
+        <img style="width: 25px" [src]="actionConfig.img" />
+        {{ actionConfig.txt }}
+      </a>
+    </div>
+  </mat-card-content>
+</mat-card>
