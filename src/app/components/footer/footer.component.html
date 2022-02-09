@@ -1,0 +1,17 @@
+<footer class="footerMain">
+  <mat-card class="cardMain">
+    <mat-card-title-group>
+      <mat-card-title class="font__color">{{
+        configFooter.title
+      }}</mat-card-title>
+      <mat-card-subtitle class="font__color"
+        >{{ configFooter.sub }}
+        <a mat-button class="link" target="_blank" [href]="configFooter.link"
+          >{{ configFooter.desc }} </a
+        > {{ configFooter.year }}
+      </mat-card-subtitle>
+      <img class="img" mat-card-sm-image [src]="configFooter.img"/>
+    </mat-card-title-group>
+    <mat-card-content> </mat-card-content>
+  </mat-card>
+</footer>
