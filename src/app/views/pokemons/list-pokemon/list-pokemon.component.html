@@ -1,19 +1,18 @@
 <mat-card class="cardMain">
-  <mat-card class="content">
-    <mat-card-title-group>
-      <mat-card-title>Mega Blastoise</mat-card-title>
-      <mat-card-subtitle>Nº 001</mat-card-subtitle>
+  <mat-card class="content" *ngFor="let pokemon of pokemons">
+    <div class="content__info">
+      <mat-card-title>{{ pokemon.name }}</mat-card-title>
+      <mat-card-subtitle class="content__info--sub"
+        >Nº {{ pokemon.national_number }}</mat-card-subtitle
+      >
       <img
         class="content--img__img"
-        mat-card-lg-image
-        src="https://img.pokemondb.net/artwork/venusaur.jpg"
+        mat-card-md-image
+        [src]="pokemon.sprites.large"
       />
-    </mat-card-title-group>
-    <mat-card-content style="margin-top: 10px">
-      <div class="cardType">
-        <div class="cardType__type">Fire</div>
-        <div class="cardType__type">White</div>
-      </div>
-    </mat-card-content>
+    </div>
+    <div class="cardType">
+      <div class="cardType__type" [ngClass]="pokemonType" *ngFor="let pokemonType of pokemon.type">{{ pokemonType }}</div>
+    </div>
   </mat-card>
 </mat-card>

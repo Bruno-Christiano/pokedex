@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Pokemon } from 'src/app/models';
 import { ConfigFooter } from 'src/app/models/config-footer';
 
 @Component({
@@ -15,6 +16,7 @@ export class HomeComponent implements OnInit {
     desc: 'Bruno Cristiano',
     year: 2022,
   };
+
   constructor() {}
 
   ngOnInit() {}
