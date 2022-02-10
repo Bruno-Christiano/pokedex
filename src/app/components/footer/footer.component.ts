@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ConfigFooter } from 'src/app/models/config-footer';
+import { ConfigFooter } from 'src/app/models';
 
 @Component({
   selector: 'app-footer',
