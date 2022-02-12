@@ -30,8 +30,11 @@
       cursor: pointer;
       background-image: linear-gradient(rgb(225, 219, 219), rgb(206, 100, 100));
 
-      .imgIcon {
-        background-color: green;
+      .imgIcon::before {
+        font: var(--fa-font-regular);
+        content: "\f005";
+        font-size: 1.75rem;
+        color: #d3a408;
       }
     }
 
@@ -75,7 +78,26 @@
   height: 30px;
 }
 
-.imgIcon {
-  width: 30px;
-  height: 30px;
+.icon {
+  animation-duration: 3s;
+  animation-name: icon;
 }
+
+.icon {
+  animation: icon 1s backwards;
+}
+
+@keyframes icon {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// .imgIcon {
+//   &:hover {
+//     background-color: red;
+//   }
+// }

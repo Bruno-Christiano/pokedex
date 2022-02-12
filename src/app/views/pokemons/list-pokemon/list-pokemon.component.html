@@ -3,18 +3,15 @@
     class="content"
     *ngFor="let pokemon of pokemons; index as pokemonOffIndex"
     (click)="setCheckPokemon(pokemonOffIndex)"
-
   >
     <div class="content__iconFav">
       <img
+        class="icon"
         src="../../../../assets/icons/star-fav.png"
         alt="Icon fav"
         [hidden]="pokemon.isChecked == false"
       />
-
-      <div class="imgIcon">
-        <!-- <i [ngClass]="iconFavHover"></i> -->
-      </div>
+      <div class="imgIcon" [hidden]="pokemon.isFav == !false"></div>
     </div>
 
     <div class="content__info">

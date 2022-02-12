@@ -11,6 +11,7 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 export class ListPokemonComponent implements OnInit {
   iconFavHover: string = 'fa-regular fa-star';
   pokemons: Pokemon[] = [];
+  isFavorite: boolean = false;
 
   constructor(private pokemonService: PokemonService) {}
 
@@ -23,7 +24,8 @@ export class ListPokemonComponent implements OnInit {
       this.pokemons = res.results;
       console.log(this.pokemons);
 
-      const p = this.pokemons.map((pokemon) => {
+      const poke = this.pokemons.map((pokemon) => {
+        pokemon.isFav = false;
         pokemon.isChecked = false;
         return pokemon;
       });
@@ -34,18 +36,10 @@ export class ListPokemonComponent implements OnInit {
     let dados = this.pokemons;
     if (dados[id].isChecked === false) {
       dados[id].isChecked = true;
+      dados[id].isFav = true;
     } else {
       dados[id].isChecked = false;
-    }
-  }
-
-  onMouseOver(id: number) {
-    let dados = this.pokemons;
-    if (dados[id].isChecked === false) {
-      this.iconFavHover = 'fa-regular fa-star';
-      // dados[id].isChecked = true;
-    } else {
-      dados[id].isChecked = false;
+      dados[id].isFav = false;
     }
   }
 }
