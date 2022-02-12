@@ -8,16 +8,9 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SearchComponent } from './search/search.component';
-import { SharedModule } from '../shared/shared.module';
-import { FilterByDescPipe } from './search/filterByDesc.pipe';
 
 @NgModule({
-  declarations: [
-    HeaderComponent,
-    FooterComponent,
-    SearchComponent,
-    FilterByDescPipe,
-  ],
+  declarations: [HeaderComponent, FooterComponent, SearchComponent],
   imports: [
     CommonModule,
     MatButtonModule,
