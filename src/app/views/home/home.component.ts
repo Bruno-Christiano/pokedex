@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Pokemon } from 'src/app/models';
 import { ConfigFooter } from 'src/app/models/config-footer';
 
 @Component({
@@ -12,7 +11,7 @@ export class HomeComponent implements OnInit {
     title: 'Pokedex',
     sub: 'Developed By:',
     img: '../../../assets/icons/pokebola.png',
-    link: '',
+    link: 'https://www.linkedin.com/in/bruno-cristiano-santos/',
     desc: 'Bruno Cristiano',
     year: 2022,
   };

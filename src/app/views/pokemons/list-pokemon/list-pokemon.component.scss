@@ -26,6 +26,15 @@
     min-height: 200px;
     min-width: 280px;
 
+    &:hover {
+      cursor: pointer;
+      background-image: linear-gradient(rgb(225, 219, 219), rgb(206, 100, 100));
+
+      .imgIcon {
+        background-color: green;
+      }
+    }
+
     &__info {
       display: flex;
       flex-direction: column;
@@ -58,4 +67,15 @@
     justify-content: center;
     font-weight: 600;
   }
+}
+
+.content__iconFav {
+  display: flex;
+  width: 30px;
+  height: 30px;
+}
+
+.imgIcon {
+  width: 30px;
+  height: 30px;
 }

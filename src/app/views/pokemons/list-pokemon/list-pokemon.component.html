@@ -1,5 +1,22 @@
 <mat-card class="cardMain">
-  <mat-card class="content" *ngFor="let pokemon of pokemons">
+  <mat-card
+    class="content"
+    *ngFor="let pokemon of pokemons; index as pokemonOffIndex"
+    (click)="setCheckPokemon(pokemonOffIndex)"
+
+  >
+    <div class="content__iconFav">
+      <img
+        src="../../../../assets/icons/star-fav.png"
+        alt="Icon fav"
+        [hidden]="pokemon.isChecked == false"
+      />
+
+      <div class="imgIcon">
+        <!-- <i [ngClass]="iconFavHover"></i> -->
+      </div>
+    </div>
+
     <div class="content__info">
       <mat-card-title>{{ pokemon.name }}</mat-card-title>
       <mat-card-subtitle class="content__info--sub"
@@ -11,8 +28,15 @@
         [src]="pokemon.sprites.large"
       />
     </div>
+
     <div class="cardType">
-      <div class="cardType__type" [ngClass]="pokemonType" *ngFor="let pokemonType of pokemon.type">{{ pokemonType }}</div>
+      <div
+        class="cardType__type"
+        [ngClass]="pokemonType"
+        *ngFor="let pokemonType of pokemon.type"
+      >
+        {{ pokemonType }}
+      </div>
     </div>
   </mat-card>
 </mat-card>
