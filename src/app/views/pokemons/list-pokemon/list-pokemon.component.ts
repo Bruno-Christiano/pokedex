@@ -21,14 +21,8 @@ export class ListPokemonComponent implements OnInit {
 
   showAllPokemons() {
     this.pokemonService.getAllPokemons().subscribe((res) => {
-      this.pokemons = res.results;
-      console.log(this.pokemons);
-
-      const poke = this.pokemons.map((pokemon) => {
-        pokemon.isFav = false;
-        pokemon.isChecked = false;
-        return pokemon;
-      });
+      const resultPokemonUnique = this.getPokemonUnique(res.results);
+      this.pokemons = resultPokemonUnique;
     });
   }
 
@@ -41,5 +35,25 @@ export class ListPokemonComponent implements OnInit {
       dados[id].isChecked = false;
       dados[id].isFav = false;
     }
+  }
+
+  getPokemonUnique(array: any) {
+    const resultPokemonUnique = array.filter(
+      (pokemon: any, index: any, self: any) =>
+        index ===
+        self.findIndex(
+          (pokemonToFilter: any) =>
+            pokemonToFilter.national_number === pokemon.national_number &&
+            pokemonToFilter.name === pokemon.name
+        )
+    );
+
+    resultPokemonUnique.map((pokemon: any) => {
+      pokemon.favorite = false;
+      pokemon.isChecked = false;
+      return pokemon;
+    });
+
+    return resultPokemonUnique;
   }
 }
