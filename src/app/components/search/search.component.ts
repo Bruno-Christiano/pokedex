@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
+import { Pokemon } from 'src/app/models';
 
 @Component({
   selector: 'app-search',
@@ -6,74 +10,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
-  value = 'Clear me';
+  @Output() valueSrc = new EventEmitter<string>();
+
+  valueLabel = 'Clear me';
   icon = 'fa-solid fa-xmark';
-  searchText = '';
-  pokemons = [
-    {
-      national_number: '001',
-      evolution: null,
-      sprites: {
-        normal:
-          'https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/bulbasaur.png',
-        large: 'https://img.pokemondb.net/artwork/bulbasaur.jpg',
-        animated:
-          'https://img.pokemondb.net/sprites/black-white/anim/normal/bulbasaur.gif',
-      },
-      name: 'Bulbasaur',
-      type: ['Grass', 'Poison'],
-      total: 318,
-      hp: 45,
-      attack: 49,
-      defense: 49,
-      sp_atk: 65,
-      sp_def: 65,
-      speed: 45,
-    },
-    {
-      national_number: '002',
-      evolution: null,
-      sprites: {
-        normal:
-          'https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/ivysaur.png',
-        large: 'https://img.pokemondb.net/artwork/ivysaur.jpg',
-        animated:
-          'https://img.pokemondb.net/sprites/black-white/anim/normal/ivysaur.gif',
-      },
-      name: 'Ivysaur',
-      type: ['Grass', 'Poison'],
-      total: 405,
-      hp: 60,
-      attack: 62,
-      defense: 63,
-      sp_atk: 80,
-      sp_def: 80,
-      speed: 60,
-    },
-    {
-      national_number: '003',
-      evolution: {
-        name: 'Mega Venusaur',
-      },
-      sprites: {
-        normal:
-          'https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/venusaur.png',
-        large: 'https://img.pokemondb.net/artwork/venusaur.jpg',
-        animated:
-          'https://img.pokemondb.net/sprites/black-white/anim/normal/venusaur.gif',
-      },
-      name: 'Venusaur',
-      type: ['Grass', 'Poison'],
-      total: 625,
-      hp: 80,
-      attack: 100,
-      defense: 123,
-      sp_atk: 122,
-      sp_def: 120,
-      speed: 80,
-    },
-  ];
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit(): void {}
+
+  search(event: any) {
+    const pokemon = event.target.value;
+    this.valueSrc.emit(pokemon);
+    console.log(event);
+  }
 }

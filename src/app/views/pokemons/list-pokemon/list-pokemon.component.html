@@ -1,7 +1,45 @@
+<!-- src Pokemons -->
+<div style="display: flex; flex-direction: row; width: 50%; justify-content: space-between; margin: 15px auto; align-items: center;" >
+  <mat-form-field class="contentSrc" appearance="fill">
+    <mat-label>Informe o nome do Pokemon</mat-label>
+    <input name="src" matInput type="text" [(ngModel)]="filter" />
+    <button
+      *ngIf="filter"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="filter = ''"
+    >
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Favorite food</mat-label>
+    <mat-select (click)="test($event)">
+      <mat-option value="name"> Ascendente </mat-option>
+      <mat-option value="national_number"> Descendente </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-checkbox class="example-margin">Favorite</mat-checkbox>
+</div>
+
+<div class="example-button-row">
+  <h4>Filter By Types</h4>
+  <button
+    (click)="filterPokemonBytype(type)"
+    *ngFor="let type of typesUnique"
+    mat-button
+  >
+    {{ type }}
+  </button>
+</div>
+
+<!-- list Pokemons -->
 <mat-card class="cardMain">
   <mat-card
     class="content"
-    *ngFor="let pokemon of pokemons; index as pokemonOffIndex"
+    *ngFor="let pokemon of filteredPokemons; index as pokemonOffIndex"
     (click)="setCheckPokemon(pokemonOffIndex)"
   >
     <div class="content__iconFav">
