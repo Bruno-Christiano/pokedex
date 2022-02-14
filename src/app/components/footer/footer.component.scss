@@ -1,0 +1,40 @@
+.footerMain {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.cardMain {
+  background-color: var(--color-darks);
+  border-radius: 0;
+  color: var(--color-white);
+}
+
+.font__color {
+  color: var(--color-white);
+}
+.link {
+  padding: 0 5px;
+  &:hover {
+    color: var(--color-primary);
+    transform: scale(1.1);
+  }
+}
+
+.img {
+  animation-duration: 3s;
+  animation-name: img;
+}
+
+.img {
+  animation: img 1s backwards;
+}
+
+@keyframes img {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,1 +1,166 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$my-pokedex-primary: mat.define-palette(mat.$indigo-palette);
+$my-pokedex-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$my-pokedex-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$my-pokedex-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-pokedex-primary,
+      accent: $my-pokedex-accent,
+      warn: $my-pokedex-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($my-pokedex-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+:root {
+  --color-primary: #ef5350;
+  --color-primary-dark: #c62828;
+  --color-secondary: rgba(0, 116, 236, 0.9294117647058824);
+  --color-white: #fff;
+  --color-darks: #1f1f1f;
+  --color-gray: #f2f2f2;
+
+  // colors actions pokemon in type
+
+  --color-fire: #fd7d24;
+  --color-normal: #a4acaf;
+  --color-water: #4592c4;
+  --color-grass: #9bcc50;
+  --color-ice: #51c4e7;
+  --color-poison: #b97fc9;
+  --color-ground: #f7de3f;
+  --color-flying: #3dc7ef;
+  --color-bug: #729f3f;
+  --color-rock: #a38c21;
+  --color-ghost: #7b62a3;
+  --color-dragon: #53a4cf;
+  --color-dark: #707070;
+  --color-steel: #9eb7b8;
+  --color-fairy: #fdb9e9;
+  --color-psychic: #f366b9;
+  --color-electric: #eed535;
+  --color-fighting: #d56723;
+
+  // MERGE IN COLOR: TYPE fLY, DRAGON AND GROUND
+  --color-gray-warm: #bdb9b8;
+  --color-gold: #ab9842;
+  --color-red-ice: #f16e57;
+
+  // class aplications
+
+  .Ground {
+    background: linear-gradient(
+      180deg,
+      var(--color-ground) 50%,
+      var(--color-gold) 50%
+    );
+  }
+
+  .Flying {
+    background: linear-gradient(
+      180deg,
+      var(--color-flying) 50%,
+      var(--color-gray-warm) 50%
+    );
+  }
+
+  .Dragon {
+    background: linear-gradient(
+      180deg,
+      var(--color-dragon) 50%,
+      var(--color-red-ice) 50%
+    );
+  }
+
+  .Normal {
+    background-color: var(--color-normal);
+  }
+
+  .Water {
+    background-color: var(--color-water);
+  }
+
+  .Dark {
+    background-color: var(--color-dark);
+  }
+  .Ice {
+    background-color: var(--color-ice);
+  }
+
+  .Rock {
+    background-color: var(--color-rock);
+  }
+
+  .Ghost {
+    background-color: var(--color-ghost);
+  }
+
+  .Fire {
+    background-color: var(--color-fire);
+  }
+
+  .Bug {
+    background-color: var(--color-bug);
+  }
+
+  .Poison {
+    background-color: var(--color-poison);
+  }
+
+  .Steel {
+    background-color: var(--color-steel);
+  }
+
+  .Fairy {
+    background-color: var(--color-fairy);
+  }
+
+  .Psychic {
+    background-color: var(--color-psychic);
+  }
+
+  .Electric {
+    background-color: var(--color-electric);
+  }
+
+  .Grass {
+    background-color: var(--color-grass);
+  }
+
+  .Fighting {
+    background-color: var(--color-fighting);
+  }
+}
