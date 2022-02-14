@@ -9,15 +9,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SearchComponent } from './search/search.component';
 
-import { FilterBydescriptionPipe } from './search/filterBydescription.pipe';
-
 @NgModule({
-  declarations: [
-    HeaderComponent,
-    FooterComponent,
-    SearchComponent,
-    FilterBydescriptionPipe,
-  ],
+  declarations: [HeaderComponent, FooterComponent, SearchComponent],
   imports: [
     CommonModule,
     FormsModule,
